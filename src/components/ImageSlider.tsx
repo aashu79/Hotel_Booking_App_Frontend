@@ -1,4 +1,4 @@
-import heroImage from "../assets/hero-image.jpg"
+
 import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 

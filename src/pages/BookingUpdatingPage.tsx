@@ -1,4 +1,4 @@
-import { Navigate, useNavigate, useParams } from "react-router-dom"
+import {useNavigate, useParams } from "react-router-dom"
 import BookingSvc from "../services/bookingService";
 import { Controller, FieldValues, useForm } from "react-hook-form";
 import { isAxiosError } from "axios";

@@ -1,4 +1,4 @@
-import { RefObject, Suspense, lazy} from "react";
+import {  Suspense, lazy} from "react";
 import {motion} from "framer-motion"
 import flight from "../assets/airplane.png";
 import radar from "../assets/radar.png";
@@ -11,9 +11,7 @@ const ServiceCard = lazy(() => {
   return import("../components/ServiceCard");
 });
 
-interface propType{
-  serviceRef: RefObject<HTMLDivElement>
-}
+
 
 const Service = () => {
   return (

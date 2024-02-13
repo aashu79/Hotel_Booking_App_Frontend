@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { loggedInUser } from "../redux/userReducer";
 import { RootState } from "../store/store";
 import { toast } from "react-toastify";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate} from "react-router-dom";
 import Loader from "../components/loader/Loader";
 
 interface prop {

@@ -12,9 +12,7 @@ interface propType{
 
 const HotelBookingCard = ({bookData}: propType) => {
 
-  const deleteRequest = async(id: string)=>{
-   
-  }
+
 
   const handleDelete = (id: string)=>{
     Swal.fire({

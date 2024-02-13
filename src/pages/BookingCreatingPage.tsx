@@ -1,10 +1,10 @@
 
-import { useLocation, useSearchParams } from 'react-router-dom'
+import {useSearchParams } from 'react-router-dom'
 import BookingForm from '../components/BookingForm'
 
 const BookingCreatingPage = () => {
   
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
    const hotelId = searchParams.get("hotelId");
   const pricePerNight = Number(searchParams.get("pricePerNight"));
   const childCount = Number(searchParams.get("childCount"));

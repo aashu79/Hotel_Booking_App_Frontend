@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import HotelSvc from "../services/hotelService";
 import { hotelDataType } from "../utils/globalTypes";
 import axios from "axios";
-import { toast } from "react-toastify";
+
 import Loader from "../components/loader/Loader";
 
 export interface SearchQuery {
