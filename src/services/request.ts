@@ -1,12 +1,22 @@
+import { AxiosHeaders } from "axios";
 import axiosInstance from "./axios"
 
-
+interface headersType{
+    Authorization?: string;
+}
 
 
 class HttpRequest{
+     token = localStorage.getItem("AccessToken");
+  
     getRequest = async(url: string)=>{
+        const token = localStorage.getItem("AccessToken");
+        const headers: headersType = {};
+        if(token){
+            headers["Authorization"] = "Bearer " + token;
+        }
        try{
-        const response = await axiosInstance.get(url, {withCredentials: true});
+        const response = await axiosInstance.get(url, {headers: headers as AxiosHeaders});
         return response;
        } catch(err){
         throw err;

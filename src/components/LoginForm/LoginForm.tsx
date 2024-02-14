@@ -12,6 +12,7 @@ interface LoginResponse{
   success: boolean;
   message: string;
   data: {
+    AccessToken: string;
     firstName: string;
     lastName: string;
     userType: string;
@@ -32,6 +33,7 @@ const LoginForm = () => {
         setLoading(true);
         const response: AxiosResponse<LoginResponse> = await authSvc.login(data);
         console.log(response.data);
+        localStorage.setItem("AccessToken", response?.data.data.AccessToken);
         dispatch(setUser(response?.data.data));
         navigate('/')
         toast.success(response.data.message);
