@@ -1,17 +1,7 @@
 import { FieldValues } from "react-hook-form";
 import HttpRequest from "./request";
 
-// interface UserData{
-//     firstName: string;
-//     lastName: string;
-//     email: string;
-//     password: string;
-// }
 
-// interface loginData{
-//     email: string;
-//     password: string;
-// }
 
 class UserService extends HttpRequest{
     register = async(data: FieldValues)=>{

@@ -3,13 +3,13 @@ import axiosInstance from "./axios"
 
 interface headersType{
     Authorization?: string;
+    'Content-Type'?: string;
+    
 }
 
 
 class HttpRequest{
-     token = localStorage.getItem("AccessToken");
-  
-    getRequest = async(url: string)=>{
+     getRequest = async(url: string)=>{
         const token = localStorage.getItem("AccessToken");
         const headers: headersType = {};
         if(token){
@@ -25,12 +25,16 @@ class HttpRequest{
     }
 
     postRequest = async(url: string, data: any, file: boolean)=>{
-        var headers = {}
+        const token = localStorage.getItem("AccessToken");
+        var headers: headersType = {};
+        if(token){
+            headers["Authorization"] = "Bearer " + token;
+        }
         if(file){
             headers = { 'Content-Type': 'multipart/form-data'};
         }
         try{
-            const response = await axiosInstance.post(url, data, {headers: headers, withCredentials: true});
+            const response = await axiosInstance.post(url, data, {headers: headers as AxiosHeaders, withCredentials: true});
             return response;
         }catch(err){
             throw err;
@@ -38,12 +42,16 @@ class HttpRequest{
     }
 
     putRequest = async(url: string, data: any, file: boolean)=>{
-        var headers = {}
+        const token = localStorage.getItem("AccessToken");
+        var headers: headersType = {};
+        if(token){
+            headers["Authorization"] = "Bearer " + token;
+        }
         if(file){
             headers = { 'Content-Type': 'multipart/form-data'};
         }
         try{
-            const response = await axiosInstance.put(url, data, {headers: headers, withCredentials: true});
+            const response = await axiosInstance.put(url, data, {headers: headers as AxiosHeaders, withCredentials: true});
             return response;
         }catch(err){
             throw err;
@@ -51,8 +59,14 @@ class HttpRequest{
     }
 
     deleteRequest = async(url: string)=>{
+        const token = localStorage.getItem("AccessToken");
+        var headers: headersType = {};
+        if(token){
+            headers["Authorization"] = "Bearer " + token;
+        }
+    
         try{
-            const response = await axiosInstance.delete(url, {withCredentials: true});
+            const response = await axiosInstance.delete(url, {headers: headers as AxiosHeaders});
             return response
         }
         catch(err) {
