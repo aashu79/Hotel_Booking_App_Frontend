@@ -24,6 +24,7 @@ const Navbar = () => {
     try {
       dispatch(logout());
       const response = await UserSvc.logOut();
+      localStorage.clear();
       toast.success(response?.data.message);
     } catch (error) {
       return error;
